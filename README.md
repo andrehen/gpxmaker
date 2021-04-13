@@ -1,12 +1,24 @@
 
 # GPXmaker
 
+## Changes
+This is a fork of the fine work done by *shaderzz*. Where I made some modifications to not loose any HR data or Location data on the final file.
+
+For example, my location_data file has 6185 location points and my live_data has 363 HR data.
+
+Using the original logic my gpx would end with:
+
+50 HR entries, 6181 location points.
+
+This may have happened by the way Samsung now exports it's data.
+
+Other problem was that based on the order of file selection you may end up with a blank gpx, due to the async nature of `fr.onload`, if the live_data was the second file, it would enter `finalize` function with no location points, only with HR data...
+
+
+
+
 ## Samsung Health json to GPX converter
 This script allows you to convert json data from Samsung Health (originally S Health) to GPX file for Strava in pure Javascript
-
-## Demo
-
-Try [Online Demo](https://hitlife.net.ua/ru/gpxmaker)
 
 ### Main idea
 I get a few workouts into Samsung Galaxy and it is a complete nightmare to get data off of the phone.
